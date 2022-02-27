@@ -1,0 +1,201 @@
+/* if you are using a specific color or anything multiple time you can customize it such as:
+:root{
+  --overlay-color: #d55cfa;
+} ////keeps this here at the top.
+then when u want to use that, instead writing the color number every time u can put the name u gave it such:
+
+color: var(--overlay-color);
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 50px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo img {
+  width: 80%;
+}
+
+.toggle {
+  position: relative; /*positioned relative within the header*/
+  width: 60px;
+  height: 60px;
+  background: url(https://i.ibb.co/HrfVRcx/menu.png);
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: center;
+  cursor: pointer;
+}
+.toggle.active {
+  background: url(https://i.ibb.co/rt3HybH/close.png);
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: center;
+  cursor: pointer;
+}
+.showcase {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px;
+  display: flex; /*to be in a row*/
+  justify-content: space-between; /* space between everything in the show case*/
+  align-items: center; /* everything centered*/
+  background: #111; /* dark color to block menu from showing up*/
+  transition: 0.5s; /* the smooth 
+open and close on menu*/
+  z-index: 2; /* 2 to make sure everything in the showcase is in front of the menu*/
+}
+.showcase.active {
+  right: 300px;
+}
+
+.showcase video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #d55cfa;
+  mix-blend-mode: overlay;
+}
+.text {
+  position: relative;
+  z-index: 10;
+  font-family: 'Niconne', cursive;
+}
+
+.text h2 {
+  font-size: 4em;
+  font-weight: 800;
+  color: rgb(248, 187, 54);
+  line-height: 1em;
+  /*text-transform: uppercase;*/
+}
+.text h3 {
+  font-size: 4em;
+  font-weight: 700;
+  /*padding-left: 1em;*/
+  color: rgb(209, 126, 2);
+  line-height: 1em;
+  /*text-transform: uppercase;*/
+}
+.text p {
+  font-size: 1.1em;
+  color: #fff;
+  margin: 20px 0;
+  font-weight: 400;
+  max-width: 700px; /* so the paragraph doesnt become one long sentence when the page is on full screen, and it stays looking like a paragraph*/
+}
+.text a {
+  display: inline-block; /* link is an inline by default*/
+  font-size: 1em;
+  background: #fff;
+  border-radius: 25px;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 10px;
+  color: #111;
+  letter-spacing: 2px;
+  transition: 0.2s;
+}
+.text a:hover {
+  letter-spacing: 6px; /* when hovering over the numbers expand but when we want it to have a smooth hover/transition then we do transition: 0.2s; above^ */
+}
+.social {
+  position: absolute;
+  z-index: 10;
+  bottom: 20px; /* to position them to the bottom 20px */
+  display: flex; /* align-horizontal*/
+  justify-content: center;
+  align-items: center;
+}
+.social li {
+  list-style: none; /* get rif of bullet points*/
+}
+.social li a {
+  display: inline-block;
+  margin-right: 20px; /* move them apart from each other*/
+  filter: invert(1); /* this is to change the icons from black to white*/
+  transform: scale(0.5); /* to make the icon smaller or larger, default is 1*/
+  transition: 0.5s; /* so when you hover over they jump up smooth*/
+}
+.social li a:hover {
+  transform: scale(0.5) /* so when you hover over they jump up smooth*/
+    translateY(-15px); /* so they move up, - is up and no - is down */
+}
+.menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu ul {
+  position: relative;
+}
+
+.menu ul li {
+  list-style: none;
+  line-height: 5em;
+}
+.menu ul li a {
+  text-decoration: none;
+  font-size: 24px;
+  color: #111;
+}
+
+@media (max-width: 798px) {
+  /* for  smaller screens*/
+  .showcase,
+  .showcase header {
+    padding: 40px; /* padding around the smaller screen*/
+  }
+
+  .logo img {
+    width: 70%;
+  }
+
+  .text h2 {
+    font-size: 3em; /* smaller letters*/
+  }
+  .text h3 {
+    font-size: 2em; /* smaller letters*/
+  }
+}
